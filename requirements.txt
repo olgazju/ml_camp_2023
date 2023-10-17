@@ -201,3 +201,4 @@ urllib3==2.0.6
 uvicorn==0.23.2
 virtualenv==20.24.5
 wcwidth==0.2.6
+xgboost==2.0.0

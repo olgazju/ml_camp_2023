@@ -110,7 +110,11 @@ Ensure to follow the detailed instructions in notebooks/scrape_data.ipynb to und
 
 ## Data Preparation and Cleaning
 
-- Description of the steps taken to prepare and clean the dataset.
+The data preparation and cleaning process is documented in the **notebooks/1-Data-Cleaning.ipynb** notebook. This notebook shows the steps taken to combine two datasets: movies and credits. The movies dataset contains a rich set of information about movies, while the credits dataset provides detailed information about the cast and crew involved in each movie.
+
+The merging of these datasets provides a comprehensive view of each movie, allowing for a more in-depth analysis and feature engineering in the later stages of this project. During the cleaning process, various inconsistencies, missing values, and irrelevant columns were addressed to ensure a clean and reliable dataset for subsequent analysis. Columns that were considered redundant or not useful for the purpose of our analysis were dropped, and new columns were created to better represent the data where necessary.
+
+In the end, cleaned dataset was saved to **data/cleaned/movies_dataset.parquet** so it can be used in EDA.
 
 ## Exploratory Data Analysis (EDA) and Feature Importance Analysis
 

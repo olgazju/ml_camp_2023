@@ -70,11 +70,13 @@
 
 ## Data
 
-The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share.
+The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share. Additionally, credits data is loaded from [TMDb](https://developer.themoviedb.org/reference/movie-credits) to gather more information about the cast and crew of the movies.
+
+The reason for fetching data from two APIs and loading credits is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the credits provide insights into the individuals involved in the making of the movies.
 
 ### Data Collection
 
-1. **API Keys and Tokens:** 
+1. **API Keys and Tokens:**
 
    - Before starting the data collection process, you'll need to obtain the necessary API keys and tokens.
    - For TMDB, get your `API_KEY` and `API_TOKEN`.

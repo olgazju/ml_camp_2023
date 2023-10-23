@@ -105,6 +105,7 @@ The reason for fetching data from two APIs and loading credits is to compile a c
 ### Datasets
 
 **Movies Dataset**: Contains combined data from OMDB and TMDB APIs, saved in data/movies.parquet.
+
 **Credits Dataset**: Contains crew and cast data for each movie, saved in data/credits.parquet.
 Ensure to follow the detailed instructions in notebooks/scrape_data.ipynb to understand and replicate the data scraping process if you want to.
 

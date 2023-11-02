@@ -70,9 +70,9 @@
 
 ## Data
 
-The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share. Additionally, credits data is loaded from [TMDb](https://developer.themoviedb.org/reference/movie-credits) to gather more information about the cast and crew of the movies.
+The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share during scrapping.
 
-The reason for fetching data from two APIs and loading credits is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the credits provide insights into the individuals involved in the making of the movies.
+The reason for fetching data from two APIs is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the tmdb metadata + credits provide insights into the individuals involved in the making of the movies and common information about movies.
 
 ### Data Collection
 
@@ -99,21 +99,13 @@ The reason for fetching data from two APIs and loading credits is to compile a c
     - The movies were scraped in batches of 1000 per day to abide by the OMDB API limit, and saved in separate Parquet files.
     - All the scraped data was then combined and saved into ./data/movies.parquet.
 
-3. **Additional Data:**
-    A separate dataset containing credits (crew and cast) for each movie was also scraped and saved to ./data/credits.parquet.
-
 ### Datasets
 
 **Movies Dataset**: Contains combined data from OMDB and TMDB APIs, saved in data/movies.parquet.
 
-**Credits Dataset**: Contains crew and cast data for each movie, saved in data/credits.parquet.
-Ensure to follow the detailed instructions in notebooks/scrape_data.ipynb to understand and replicate the data scraping process if you want to.
-
 ## Data Preparation and Cleaning
 
-The data preparation and cleaning process is documented in the **notebooks/1-Data-Cleaning.ipynb** notebook. This notebook shows the steps taken to combine two datasets: movies and credits. The movies dataset contains a rich set of information about movies, while the credits dataset provides detailed information about the cast and crew involved in each movie.
-
-The merging of these datasets provides a comprehensive view of each movie, allowing for a more in-depth analysis and feature engineering in the later stages of this project. During the cleaning process, various inconsistencies, missing values, and irrelevant columns were addressed to ensure a clean and reliable dataset for subsequent analysis. Columns that were considered redundant or not useful for the purpose of our analysis were dropped, and new columns were created to better represent the data where necessary.
+The data preparation and cleaning process is documented in the **notebooks/1-Data-Cleaning.ipynb** notebook. During the cleaning process, various inconsistencies, missing values, and irrelevant columns were addressed to ensure a clean and reliable dataset for subsequent analysis. Columns that were considered redundant or not useful for the purpose of our analysis were dropped, and new columns were created to better represent the data where necessary.
 
 In the end, cleaned dataset was saved to **data/cleaned/movies_dataset.parquet** so it can be used in EDA.
 

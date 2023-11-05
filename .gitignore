@@ -162,4 +162,5 @@ cython_debug/
 .DS_Store
 .python-version
 
-notebooks/1.csv
+midterm_project/notebooks/1.csv
+midterm_project/notebooks/catboost_info

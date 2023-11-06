@@ -14,7 +14,7 @@ I explore my dataset and evaluate different models on it to identify the most ef
 
 ## Dataset
 
-**Movies Dataset**: My dataset, consisting of around 8000 rows, combines data from the OMDB and TMDB APIs and is saved in `data/movies.parquet`.
+**Movies Dataset**: My dataset, consisting of around 8000 rows, combines data from the OMDB and TMDB APIs and is saved in [`data/movies.parquet`](https://github.com/olgazju/ml_camp_2023/blob/main/midterm_project/data/movies.parquet).
 
 ## Data
 
@@ -35,7 +35,7 @@ To reproduce my Notebooks you don't need to recollect data, I'm just placing her
 
 2. **Data Scraping:**
 
-   - The data scraping process is documented in detail in the Jupyter Notebook **notebooks/scrape_data.ipynb**.
+   - The data scraping process is documented in detail in the Jupyter Notebook [**notebooks/scrape_data.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/midterm_project/notebooks/scrape_data.ipynb).
    - A function `fetch_all_movies(start_id, last_id)` is used to fetch movie data within a specified range of IDs.
    - Due to the OMDB API limit of 1000 requests per day, a condition was set to filter out unnecessary data and to ensure that the essential data is collected without exceeding the daily quota.
 
@@ -114,19 +114,19 @@ To reproduce my Notebooks you don't need to recollect data, I'm just placing her
 
 ## Data Preparation and Cleaning
 
-I have documented the data preparation and cleaning process in the **notebooks/1-Data-Cleaning.ipynb** notebook. During this process, I addressed various inconsistencies, missing values, and irrelevant columns to ensure a clean and reliable dataset for subsequent analysis. I dropped columns that were redundant or not useful for my analysis and created new columns to better represent the data where necessary.
+I have documented the data preparation and cleaning process in the [**notebooks/1-Data-Cleaning.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/midterm_project/notebooks/1-Data-Cleaning.ipynb) notebook. During this process, I addressed various inconsistencies, missing values, and irrelevant columns to ensure a clean and reliable dataset for subsequent analysis. I dropped columns that were redundant or not useful for my analysis and created new columns to better represent the data where necessary.
 
 In the end, the cleaned dataset was saved to **data/cleaned/movies_dataset.parquet** for use in EDA.
 
 ## Exploratory Data Analysis (EDA) and Feature Importance Analysis
 
-The exploratory data analysis is detailed in **notebooks/2-EDA.ipynb**, using the dataset located at **data/cleaned/movies_dataset.parquet**. In the EDA, I dive into the distribution and characteristics of both the labels and features. I explore how different features correlate with the labels and perform a feature importance analysis. This helps me understand which features have the most influence on a movie's success and guides my model selection and tuning efforts.
+The exploratory data analysis is detailed in [**notebooks/2-EDA.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/midterm_project/notebooks/2-EDA.ipynb), using the dataset located at **data/cleaned/movies_dataset.parquet**. In the EDA, I dive into the distribution and characteristics of both the labels and features. I explore how different features correlate with the labels and perform a feature importance analysis. This helps me understand which features have the most influence on a movie's success and guides my model selection and tuning efforts.
 
 In the end, the cleaned dataset was saved to **data/cleaned/selected_features.parquet** for use in Modeling.
 
 ## Model Selection Process and Parameter Tuning
 
-In **notebooks/3-Model.ipynb**, I explore a variety of models suitable for multilabel classification tasks. I evaluated their performance using several metrics, applied cross-validation to ensure their generalizability, and fine-tuned the parameters of the most promising models. Through this process, I identified the best-performing model that I will move forward with.
+In [**notebooks/3-Model.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/midterm_project/notebooks/3-Model.ipynb), I explore a variety of models suitable for multilabel classification tasks. I evaluated their performance using several metrics, applied cross-validation to ensure their generalizability, and fine-tuned the parameters of the most promising models. Through this process, I identified the best-performing model that I will move forward with.
 
 ## Training the Final Model
 

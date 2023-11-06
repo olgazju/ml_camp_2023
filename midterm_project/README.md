@@ -130,7 +130,7 @@ In [**notebooks/3-Model.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/ma
 
 ## Training the Final Model
 
-I copied the code from data cleaning and features extraction process into `train.py` file.
+I copied the code from data cleaning and features extraction process into `midterm_project/train.py` file.
 
 It loads the dataset from 'midterm_project/data/movies.parquet', cleans it and extract features. Then it train catboost_classifier = CatBoostClassifier(loss_function='MultiLogloss',eval_metric='HammingLoss', iterations=400, depth=6, learning_rate=0.1, random_state=42) and saves the model, dictvectorizer and standartscaler to midterm_project/models_binary folder as 3 files:
 
@@ -138,11 +138,27 @@ It loads the dataset from 'midterm_project/data/movies.parquet', cleans it and e
 - dict_vectorizer.pkl
 - standard_scaler.pkl
 
+How to run:
+
+```python
+python train.py
+```
+
 ## Loading the Model and Serving It via a Web Service
 
-- Script (`predict.py`)
-- Instructions on how to load the trained model.
-- Explanation of how the model is served via a web service (e.g., using Flask or BentoML).
+Finally, I've set up a web service (Fast API) to serve the trained model. In real-world applications, a web service should handle prediction, data cleaning, and feature extraction directly on the input data. However, for the purposes of this study project, I've simplified the process. I fetched a few sample movies from movie APIs, cleaned them, extracted features, and then converted them into JSON format for HTTP requests.
+
+The code for the service is located in the `midterm_project/predict.py` file.
+
+### How to Run the Service
+
+To run the web service, use the following command in the terminal:
+
+```bash
+uvicorn predict:app --reload
+```
+
+Then open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions.
 
 ## Docker
 

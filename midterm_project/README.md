@@ -238,7 +238,13 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
     minikube status
     ```
 
-   <img width="774" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/a269611a-7471-424d-8bf5-10a31ec62459">
+   <img width="748" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/9eec7d93-15bf-4066-80f7-2b9a6552241a">
+
+4. **Install kubectl**:
+
+   ```bash
+       brew install kubectl
+    ```
 
 
 ### Running Minikube

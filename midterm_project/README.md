@@ -158,7 +158,7 @@ To run the web service, use the following command in the terminal:
 uvicorn predict:app --reload
 ```
 
-Then open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions.
+Then open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions, copy different JSONs to client variable and click run.
 
 ## Docker
 
@@ -184,7 +184,7 @@ docker build -t movie-success .
 
 ### 3. **Run the Docker Image**
 
-- After successfully building the image, run the following command to start a container from the image 
+- After successfully building the image, run the following command to start a container from the image
 
 ```bash
 docker run -p 8000:8000 movie-success
@@ -192,7 +192,7 @@ docker run -p 8000:8000 movie-success
 
 ### 4. **Accessing the Service**
 
-- Now that the model is running in a Docker container, you can access it by going to http://localhost:8000 in your browser
+- Now that the model is running in a Docker container, open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions, copy different JSONs to client variable and click run.
 
 ### 5. **Stop the Docker Container**
 

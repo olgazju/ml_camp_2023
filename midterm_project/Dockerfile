@@ -8,12 +8,7 @@ WORKDIR /app
 # Copy the model, DictVectorizer, and StandardScaler files into the models_binary directory
 COPY models_binary/catboost_classifier_model.pkl models_binary/dict_vectorizer.pkl models_binary/standard_scaler.pkl models_binary/
 
-COPY requirements.txt ./
-COPY requirements.txt ./
-COPY requirements.txt ./
-
-# Copy the requirements file into the container
-COPY requirements.txt ./
+COPY requirements.txt ./requirements.txt
 
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt

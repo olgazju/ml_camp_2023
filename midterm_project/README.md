@@ -175,7 +175,7 @@ To containerize and run the model locally using Docker, you'll need to follow th
 ### 2. **Build the Docker Image**
 
 - Open a terminal.
-- Navigate to the project root directory.
+- Navigate to the project root directory midterm_project.
 - Run the following command to build `movie-success` Docker image:
 
 ```bash

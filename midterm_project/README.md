@@ -12,11 +12,17 @@ To make these predictions, I use a technique called [multi-label classification]
 
 I explore my dataset and evaluate different models on it to identify the most effective one for predicting movie success. I transform the top performer model into a service that anyone can use. Additionally, I package it in a Docker file, ensuring it can be run in various environments.
 
+## Dataset
+
+**Movies Dataset**: My dataset, consisting of around 8000 rows, combines data from the OMDB and TMDB APIs and is saved in `data/movies.parquet`.
+
 ## Data
 
 The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share during scrapping.
 
 The reason for fetching data from two APIs is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the tmdb metadata + credits provide insights into the individuals involved in the making of the movies and common information about movies.
+
+To reproduce my Notebooks you don't need to recollect data, I'm just placing here an exact description of how the data was collected so the process can be repeated by anyone.
 
 ### Data Collection
 
@@ -105,10 +111,6 @@ The reason for fetching data from two APIs is to compile a comprehensive dataset
     ```
 
 3. Jupyter Notebook will open in your web browser, and you can create new notebooks or open existing notebooks from the browser interface.
-
-## Dataset
-
-**Movies Dataset**: My dataset, consisting of around 8000 rows, combines data from the OMDB and TMDB APIs and is saved in `data/movies.parquet`.
 
 ## Data Preparation and Cleaning
 

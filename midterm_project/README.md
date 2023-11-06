@@ -210,7 +210,7 @@ docker stop <container-id>
 
 ## Cloud Deployment
 
-### Installing Minikube
+### Installing and Running Minikube
 
 Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-node Kubernetes cluster on your personal computer (including Windows, macOS, and Linux PCs) so that you can try out Kubernetes, or for daily development work.
 
@@ -245,19 +245,66 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
    ```bash
        brew install kubectl
     ```
+   
+5. **To point your terminal to use the docker daemon inside minikube run this**
 
-
-### Running Minikube
-
-1. **Access Minikube Dashboard**:
-
-    - Once Minikube is started, you can access the Kubernetes Dashboard, a web-based Kubernetes user interface, by running:
-
-    ```bash
-    minikube dashboard
+   ```bash
+       eval $(minikube docker-env)
     ```
 
-    <img width="792" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/56d4bfe5-be9a-4583-9f60-653f6783693f">
+   Now any ‘docker’ command you run in this current terminal will run against the docker inside minikube cluster.
 
-2. **Deploy Model**:
+6. **To build docker image inside minikube**
+
+   ```bash
+       minikube cache add python:3.10.12-slim
+       docker build -t movie-success . --progress=plain
+    ```
+
+   If I run
+   
+   ```bash
+       docker ps
+    ```
+
+   I should see my movie-success:latest image:
+   <img width="726" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/0baab5a6-2558-42a2-8f61-dd254e3d58d5">
+
+7. **Let's deploy the model**
+
+   You have deployment.yaml file in the project folder. Deploy it and check if it went well.
+
+   ```bash
+       kubectl apply -f deployment.yaml
+       kubectl get deployments
+    ```
+
+   <img width="533" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/ad462aef-0834-428c-b2cf-ff1fe09ae76a">
+
+8. **Expose the application**
+
+   Create a Kubernetes service:
+
+   ```bash
+       kubectl expose deployment fastapi-movie-success-deployment --type=NodePort --port=8000
+    ```
+
+   Find the Minikube Service URL. The command below will open a browser with the right link for your service. Copy this link, open `midterm_project/predict_request.ipynb`. Here you can find code for 'Request for minikube deployment:' and insert it to url = variable.
+
+   ```bash
+       minikube service fastapi-movie-success-deployment
+    ```
+
+   <img width="713" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/821bec3c-2939-4ee7-8e37-44548e9c8855">
+
+   <img width="314" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/67d05ec3-2b98-44d4-9c88-c422cfe33fcd">
+
+   <img width="1032" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/b0781013-0490-462c-9ed9-47032bc81314">
+
+9. **To stop minukube**
+
+   ```bash
+       minikube stop
+    ```
+
 

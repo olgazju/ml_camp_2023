@@ -160,6 +160,9 @@ uvicorn predict:app --reload
 
 Then open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions, copy different JSONs to client variable and click run.
 
+<img width="1028" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/fd52d2c0-81fc-465d-95bf-62ce443e464b">
+
+
 ## Docker
 
 To containerize and run the model locally using Docker, you'll need to follow these steps:
@@ -193,6 +196,9 @@ docker run -p 8000:8000 movie-success
 ### 4. **Accessing the Service**
 
 - Now that the model is running in a Docker container, open `midterm_project/predict_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for predictions, copy different JSONs to client variable and click run.
+
+<img width="1028" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/544956c4-0791-4d51-a3ba-44d228e1fb0b">
+
 
 ### 5. **Stop the Docker Container**
 
@@ -307,7 +313,7 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
        minikube stop
     ```
 
-# What is this deployment.yaml file?
+#### What is this deployment.yaml file?
 
 This YAML file is for a Kubernetes deployment configuration named `fastapi-movie-success-deployment`. It's designed to deploy a FastAPI application containerized with the Docker image `movie-success:latest`. The deployment ensures that one replica of the application is running (`replicas: 1`). It uses the label `app: fastapi` to manage and identify the pods. The `imagePullPolicy: IfNotPresent` setting is used to avoid pulling the image from a remote registry if it already exists locally. The application listens on port 8000 inside the container, aligning with the FastAPI server's default port.
 

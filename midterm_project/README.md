@@ -2,15 +2,46 @@
 
 ## Problem Description
 
-In this project, I am tackling the question: "Can I predict whether a movie will be successful?" Since success can mean different things, I am focusing on three specific areas: a movie's profitability (Revenue vs Budget), its performance at award ceremonies, and the ratings it receives from viewers and critics.
+In this project, as a part of [MLZommCamp](https://github.com/DataTalksClub/machine-learning-zoomcamp), I am tackling the question: "Can I predict whether a movie will be successful?" Since success can mean different things, I am focusing on three specific areas: a movie's profitability (Revenue vs Budget), its performance at award ceremonies, and the ratings it receives from viewers and critics.
 
 ## Multi-Label Classification
 
-To make these predictions, I am using a technique called [multi-label classification](https://en.wikipedia.org/wiki/Multi-label_classification). This means that instead of predicting just one outcome, I am predicting multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
+To make these predictions, I will use a technique called [multi-label classification](https://en.wikipedia.org/wiki/Multi-label_classification). This means that instead of predicting just one outcome, I am going to predict multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
 
 ## My Plan of Action
 
-I will explore the dataset and evaluate different models on it to identify the most effective one for predicting movie success. Once the top performer is identified, I will transform my model into a service that anyone can use. Additionally, I will package it in a Docker file, ensuring it can be run in various environments.
+I will explore my dataset and evaluate different models on it to identify the most effective one for predicting movie success. Once the top performer is identified, I will transform my model into a service that anyone can use. Additionally, I will package it in a Docker file, ensuring it can be run in various environments.
+
+## Data
+
+The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share during scrapping.
+
+The reason for fetching data from two APIs is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the tmdb metadata + credits provide insights into the individuals involved in the making of the movies and common information about movies.
+
+### Data Collection
+
+1. **API Keys and Tokens:**
+
+   - Before starting the data collection process, you'll need to obtain the necessary API keys and tokens.
+   - For TMDB, get your `API_KEY` and `API_TOKEN`.
+   - For OMDB, get your `OMDB_KEY`.
+   - Place these keys and tokens in a `.env` file in the project root.
+
+2. **Data Scraping:**
+
+   - The data scraping process is documented in detail in the Jupyter Notebook **notebooks/scrape_data.ipynb**.
+   - A function `fetch_all_movies(start_id, last_id)` is used to fetch movie data within a specified range of IDs.
+   - Due to the OMDB API limit of 1000 requests per day, a condition was set to filter out unnecessary data and to ensure that the essential data is collected without exceeding the daily quota.
+
+    ```python
+
+    if movie is not None and movie["imdb_id"] and \
+        movie['revenue'] !=0 and movie['status'] == 'Released' and \
+        movie ['budget'] !=0:
+    ```
+
+    - The movies were scraped in batches of 1000 per day to abide by the OMDB API limit, and saved in separate Parquet files.
+    - All the scraped data was then combined and saved into `./data/movies.parquet`.
 
 ## Instructions on How to Run the Project
 
@@ -75,40 +106,9 @@ I will explore the dataset and evaluate different models on it to identify the m
 
 3. Jupyter Notebook will open in your web browser, and you can create new notebooks or open existing notebooks from the browser interface.
 
-## Data
+## Dataset
 
-The data for this project was collected from two different APIs: [OMDB API](https://www.omdbapi.com/apikey.aspx) and [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started). The data from both APIs was merged into a single dataset based on the `imdb_id` that they both share during scrapping.
-
-The reason for fetching data from two APIs is to compile a comprehensive dataset, where OMDb provides additional data regarding awards and nominations, and the tmdb metadata + credits provide insights into the individuals involved in the making of the movies and common information about movies.
-
-### Data Collection
-
-1. **API Keys and Tokens:**
-
-   - Before starting the data collection process, you'll need to obtain the necessary API keys and tokens.
-   - For TMDB, get your `API_KEY` and `API_TOKEN`.
-   - For OMDB, get your `OMDB_KEY`.
-   - Place these keys and tokens in a `.env` file in the project root.
-
-2. **Data Scraping:**
-
-   - The data scraping process is documented in detail in the Jupyter Notebook `notebooks/scrape_data.ipynb`.
-   - A function `fetch_all_movies(start_id, last_id)` is used to fetch movie data within a specified range of IDs.
-   - Due to the OMDB API limit of 1000 requests per day, a condition was set to filter out unnecessary data and to ensure that the essential data is collected without exceeding the daily quota.
-
-    ```python
-
-    if movie is not None and movie["imdb_id"] and \
-        movie['revenue'] !=0 and movie['status'] == 'Released' and \
-        movie ['budget'] !=0:
-    ```
-
-    - The movies were scraped in batches of 1000 per day to abide by the OMDB API limit, and saved in separate Parquet files.
-    - All the scraped data was then combined and saved into ./data/movies.parquet.
-
-### Datasets
-
-**Movies Dataset**: My dataset, consisting of 8000 rows, combines data from the OMDB and TMDB APIs and is saved in `data/movies.parquet`.
+**Movies Dataset**: My dataset, consisting of around 8000 rows, combines data from the OMDB and TMDB APIs and is saved in `data/movies.parquet`.
 
 ## Data Preparation and Cleaning
 
@@ -118,13 +118,13 @@ In the end, the cleaned dataset was saved to **data/cleaned/movies_dataset.parqu
 
 ## Exploratory Data Analysis (EDA) and Feature Importance Analysis
 
-The exploratory data analysis is detailed in `notebooks/2-EDA.ipynb`, using the dataset located at `data/cleaned/movies_dataset.parquet`. In the EDA, I dive into the distribution and characteristics of both the labels and features. I explore how different features correlate with the labels and perform a feature importance analysis. This helps me understand which features have the most influence on a movie's success and guides my model selection and tuning efforts.
+The exploratory data analysis is detailed in **notebooks/2-EDA.ipynb**, using the dataset located at **data/cleaned/movies_dataset.parquet**. In the EDA, I dive into the distribution and characteristics of both the labels and features. I explore how different features correlate with the labels and perform a feature importance analysis. This helps me understand which features have the most influence on a movie's success and guides my model selection and tuning efforts.
 
 In the end, the cleaned dataset was saved to **data/cleaned/selected_features.parquet** for use in Modeling.
 
 ## Model Selection Process and Parameter Tuning
 
-In `notebooks/3-Model.ipynb`, I explore a variety of models suitable for multilabel classification tasks. I evaluated their performance using several metrics, applied cross-validation to ensure their generalizability, and fine-tuned the parameters of the most promising models. Through this process, I identified the best-performing model that I will move forward with.
+In **notebooks/3-Model.ipynb**, I explore a variety of models suitable for multilabel classification tasks. I evaluated their performance using several metrics, applied cross-validation to ensure their generalizability, and fine-tuned the parameters of the most promising models. Through this process, I identified the best-performing model that I will move forward with.
 
 ## Training the Final Model
 

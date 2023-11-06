@@ -6,11 +6,11 @@ In this project, I am tackling the question: "Can I predict whether a movie will
 
 ## Multi-Label Classification
 
-To make these predictions, I am using a technique called multi-label classification. This means that instead of predicting just one outcome, I am predicting multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
+To make these predictions, I am using a technique called [multi-label classification](https://en.wikipedia.org/wiki/Multi-label_classification). This means that instead of predicting just one outcome, I am predicting multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
 
-## Our Approach
+## My Plan of Action
 
-I will evaluate different models to identify the most effective one for predicting movie success. Once the top performer is identified, I will transform my model into a service that anyone can use. Additionally, I will package it in a Docker file, ensuring it can be run in various environments.
+I will explore the dataset and evaluate different models on it to identify the most effective one for predicting movie success. Once the top performer is identified, I will transform my model into a service that anyone can use. Additionally, I will package it in a Docker file, ensuring it can be run in various environments.
 
 ## Instructions on How to Run the Project
 

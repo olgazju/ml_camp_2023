@@ -307,4 +307,7 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
        minikube stop
     ```
 
+# What is this deployment.yaml file?
+
+This YAML file is for a Kubernetes deployment configuration named `fastapi-movie-success-deployment`. It's designed to deploy a FastAPI application containerized with the Docker image `movie-success:latest`. The deployment ensures that one replica of the application is running (`replicas: 1`). It uses the label `app: fastapi` to manage and identify the pods. The `imagePullPolicy: IfNotPresent` setting is used to avoid pulling the image from a remote registry if it already exists locally. The application listens on port 8000 inside the container, aligning with the FastAPI server's default port.
 

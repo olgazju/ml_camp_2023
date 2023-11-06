@@ -1,9 +1,16 @@
 # Movie Success Prediction Project
 
-## Description of the Problem
+## Problem Description
 
-- Brief introduction about the problem you are solving.
-- Explanation of how a model could be used to solve this problem.
+In this project, we're tackling the question: "Can we predict whether a movie will be successful?" Success can mean different things, so we're looking at three specific areas: how profitable a movie is, how it fares at award ceremonies, and what kind of ratings it gets from viewers and critics.
+
+## Multi-Label Classification
+
+To make these predictions, we're using a technique called multi-label classification. This means that instead of predicting just one outcome, we're predicting multiple outcomes at once – in our case, the three different success metrics. It's like giving each movie a report card that says if it's likely to make money, win awards, and be well-rated.
+
+## Our Approach
+
+We'll test out different models to see which one does the best job at predicting movie success, then we'll pick the top performer. After that, we'll turn our model into a service that anyone can use, and we'll package it up in a Docker file so it can be run anywhere.
 
 ## Instructions on How to Run the Project
 
@@ -101,7 +108,7 @@ The reason for fetching data from two APIs is to compile a comprehensive dataset
 
 ### Datasets
 
-**Movies Dataset**: Contains combined data from OMDB and TMDB APIs, saved in data/movies.parquet.
+**Movies Dataset**: 8000 rows contains combined data from OMDB and TMDB APIs, saved in data/movies.parquet.
 
 ## Data Preparation and Cleaning
 
@@ -111,11 +118,13 @@ In the end, cleaned dataset was saved to **data/cleaned/movies_dataset.parquet**
 
 ## Exploratory Data Analysis (EDA) and Feature Importance Analysis
 
-- Analysis of important features and any insights derived from EDA.
+The exploratory data analysis is detailed in `notebooks/2-EDA.ipynb`, using the dataset located at `data/cleaned/movies_dataset.parquet`. During the EDA, we dive into the distribution and characteristics of both our labels and features. We explore how different features correlate with our labels and perform a feature importance analysis. This helps us understand which features have the most influence on a movie's success and will guide our model selection and tuning efforts.
+
+In the end, cleaned dataset was saved to **data/cleaned/selected_features.parquet** so it can be used in Modeling.
 
 ## Model Selection Process and Parameter Tuning
 
-- Description of the models trained, the parameter tuning process, and the selection of the best model.
+In `notebooks/3-Model.ipynb`, we explore a variety of models suitable for multilabel classification tasks. We've evaluated their performance using several metrics, applied cross-validation to ensure their generalizability, and fine-tuned the parameters of the most promising models. Through this process, we've identified the best-performing model that we will move forward with.
 
 ## Training the Final Model
 

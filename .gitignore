@@ -164,3 +164,4 @@ cython_debug/
 
 midterm_project/notebooks/1.csv
 midterm_project/notebooks/catboost_info
+midterm_project/catboost_info

@@ -238,6 +238,9 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
     minikube status
     ```
 
+<img width="774" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/a269611a-7471-424d-8bf5-10a31ec62459">
+
+
 ### Running Minikube
 
 1. **Access Minikube Dashboard**:

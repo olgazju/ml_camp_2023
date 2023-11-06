@@ -253,15 +253,5 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
 
     <img width="792" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/56d4bfe5-be9a-4583-9f60-653f6783693f">
 
-
 2. **Deploy Model**:
 
-3. **Access the Model**:
-
-4. **Delete the Service and Deployment**:
-
-5. **Stop Minikube**:
-
-    ```bash
-    minikube stop
-    ```

@@ -2,15 +2,15 @@
 
 ## Problem Description
 
-In this project, as a part of [MLZommCamp](https://github.com/DataTalksClub/machine-learning-zoomcamp), I am tackling the question: "Can I predict whether a movie will be successful?" Since success can mean different things, I am focusing on three specific areas: a movie's profitability (Revenue vs Budget), its performance at award ceremonies, and the ratings it receives from viewers and critics.
+In this project, as a part of [MLZoomCamp](https://github.com/DataTalksClub/machine-learning-zoomcamp), I am tackling the question: "Can I predict whether a movie will be successful?" Since success can mean different things, I am focusing on three specific areas: a movie's profitability (Revenue vs Budget), its performance at award ceremonies, and the ratings it receives from viewers and critics.
 
 ## Multi-Label Classification
 
-To make these predictions, I will use a technique called [multi-label classification](https://en.wikipedia.org/wiki/Multi-label_classification). This means that instead of predicting just one outcome, I am going to predict multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
+To make these predictions, I use a technique called [multi-label classification](https://en.wikipedia.org/wiki/Multi-label_classification). This means that instead of predicting just one outcome, I am going to predict multiple outcomes at once – in this case, the three different success metrics. It's like giving each movie a report card that indicates whether it's likely to be profitable, win awards, and receive favorable ratings.
 
 ## My Plan of Action
 
-I will explore my dataset and evaluate different models on it to identify the most effective one for predicting movie success. Once the top performer is identified, I will transform my model into a service that anyone can use. Additionally, I will package it in a Docker file, ensuring it can be run in various environments.
+I explore my dataset and evaluate different models on it to identify the most effective one for predicting movie success. I transform the top performer model into a service that anyone can use. Additionally, I package it in a Docker file, ensuring it can be run in various environments.
 
 ## Data
 

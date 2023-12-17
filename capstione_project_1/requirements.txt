@@ -6,3 +6,4 @@ wordcloud==1.9.2
 scikit-multilearn==0.2.0
 uvicorn==0.23.2
 numpy==1.25.2
+tensorflow==2.15.0

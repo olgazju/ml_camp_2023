@@ -13,7 +13,7 @@ COPY requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the server.py file into the container
-COPY model /model
+COPY model ./model
 COPY generate.py ./
 
 # Expose the port that Uvicorn will run on

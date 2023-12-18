@@ -37,7 +37,7 @@ It includes the following data fields:
 - Line Number: The line number of the lyric in the track.
 - Year of Release: The year when the album was released.
 
-This dataset provides a unique opportunity to explore the lyrical patterns and styles characteristic of Taylor Swift's music, making it an ideal choice for this project.
+I found out that this dataset contains only her first 6 albums so I used Genius API to scrape additional 4 albums. You can find a scrapper and explanation in `capstione_project_1/notebooks/scrapper.ipynb` and a separate dataset `capstione_project_1/data/taylor_swift_4_albums.parquet`
 
 ## Data Preparation
 

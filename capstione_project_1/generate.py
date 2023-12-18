@@ -61,7 +61,7 @@ async def generate(request: Request):
     print("data", data)
 
     # Generate text using the model
-    result = generate_with_temperature(model, data['prompt'], 0.6)
-    return jsonable_encoder({"generation": result})
+    result = generate_with_temperature(model, data['prompt'], float(data['temp']))
+    return jsonable_encoder({"result": result})
 
 # Run the server: uvicorn generate:app --reload

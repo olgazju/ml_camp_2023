@@ -183,7 +183,27 @@ To run the web service, use the following command in the terminal:
 uvicorn generate:app --reload
 ```
 
-Then open `capstione_project_1/generate_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for generation, copy different JSONs to client variable and click run.
+Then open `capstione_project_1/generate_request.ipynb`. Here you can find code for request to the server (sort of a client) and JSON sample:
+
+```python
+data = {"prompt": "ice on a hand", "temp": 0.3}
+```
+
+Here prompt field is a seed phrase for your new lyrics and temp field is temperature between 0 and 1. A higher temperature results in more varied and creative outputs, whereas a lower temperature yields more conservative and expected text.
+
+Click run
+
+<img width="949" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/26b197b5-983c-445a-9aa9-25065a31f203">
+
+You should see 200 result on a server side
+
+<img width="1184" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/4e23d968-a654-4757-8a8e-4c0d09ce320d">
+
+And then you get the result of generation in Jupyter notebook. Example:
+
+```json
+{"result": "ice on a hand and i am a getaway car fake fake fake fake fake fake fake hardwood cages tendency playboy counter fresh hits state sleepless pointed bunch wednesday burnin' liars gary chandelier punched sixties' vanished and you are the la la marvelous la marvelous mm la la marvelous motown la la marvelous la marvelous letter familiar rides gown dope apologies weekend organ  roller sights boyfriend \x91cause playful hehe ladadada counting feast shot and bleachers staring playboy familiar will x streak to me up tragic hindsight stay and you are the one time are the way you are is a little ground bridesmaid"}
+```
 
 ## Docker
 
@@ -215,11 +235,17 @@ docker build -t lyric-generator .
 docker run -p 8000:8000 lyric-generator
 ```
 
+Wait a bit because it takes time for tensorflow to start.
+
 ### 4. **Accessing the Service**
 
-- Now that the model is running in a Docker container, open `midterm_project/generate_request.ipynb`. Here you can find code for request to the server (sort of client) and JSON samples for generation, copy different JSONs to client variable and click run.
+- Now that the model is running in a Docker container, open `midterm_project/generate_request.ipynb`. Here you can find code for request to the server.
 
-<TODO: picture>
+<img width="561" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/978d1a5d-892b-4d46-bb1e-8263612f7a30">
+
+
+<img width="1181" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/9dbbf446-a8d1-4991-82bd-a4ef7f0cc552">
+
 
 ### 5. **Stop the Docker Container**
 
@@ -265,8 +291,6 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
     minikube status
     ```
 
-   <img width="748" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/9eec7d93-15bf-4066-80f7-2b9a6552241a">
-
 4. **Install kubectl**:
 
    ```bash
@@ -294,10 +318,9 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
        docker ps
     ```
 
-   I should see my lyric-generator:latest image:
-   <img width="726" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/0baab5a6-2558-42a2-8f61-dd254e3d58d5">
-
-7. **Let's deploy the model**
+   I should see my lyric-generator:latest image.
+   
+8. **Let's deploy the model**
 
    You have deployment.yaml file in the project folder. Deploy it and check if it went well.
 
@@ -306,9 +329,7 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
        kubectl get deployments
     ```
 
-   <img width="533" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/ad462aef-0834-428c-b2cf-ff1fe09ae76a">
-
-8. **Expose the application**
+9. **Expose the application**
 
    Create a Kubernetes service:
 
@@ -316,23 +337,18 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
        kubectl expose deployment fastapi-lyric-generator-deployment --type=NodePort --port=8000
     ```
 
-   Find the Minikube Service URL. The command below will open a browser with the right link for your service. Copy this link, open `capstione_project_1/generate_request.ipynb`. Here you can find code for 'Request for minikube deployment:' and insert it to url = variable.
+   Find the Minikube Service URL. The command below will open a browser with the right link for your service. Copy this link, open `capstione_project_1/generate_request.ipynb`. Here you can find code for lyrics generation and insert your url in the code same way as it was descibed for fastapi service and docker container.
 
    ```bash
        minikube service fastapi-lyric-generator-deployment
     ```
 
-   <img width="713" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/821bec3c-2939-4ee7-8e37-44548e9c8855">
-
-   <img width="314" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/67d05ec3-2b98-44d4-9c88-c422cfe33fcd">
-
-   <img width="1032" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/b0781013-0490-462c-9ed9-47032bc81314">
-
-9. **To stop minukube**
+10. **To stop minukube**
 
    ```bash
        minikube stop
-    ```
+   ```
+
 
 #### What is this deployment.yaml file?
 

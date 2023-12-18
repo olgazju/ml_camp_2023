@@ -8,3 +8,4 @@ uvicorn==0.23.2
 numpy==1.25.2
 tensorflow==2.15.0
 pyspellchecker==0.7.2
+nltk==3.8.1

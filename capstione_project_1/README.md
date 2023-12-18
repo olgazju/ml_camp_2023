@@ -136,6 +136,18 @@ The process of selecting the right model for this lyric generation task involved
 - **GRU**: I also explored GRU models, which are similar to LSTMs but with a simpler structure. They often provide comparable performance with reduced computational complexity.
 - **Bidirectional Models**: Additionally, bidirectional versions of these RNNs were tested, as they process data in both forward and backward directions, potentially providing a more comprehensive understanding of the context.
 
+## Long Short-Term Memory (LSTM) Models
+
+Long Short-Term Memory (LSTM) models are a type of Recurrent Neural Network (RNN) specialized in processing sequences of data. They are particularly adept at handling long-range dependencies in sequential data, which makes them well-suited for applications in natural language processing, time series analysis, and more.
+
+### Key Features of LSTM
+
+- **Memory Cells**: At the heart of LSTM models are memory cells that can maintain information in memory for long periods. This is crucial for understanding context in text or patterns in time series.
+
+- **Gates**: LSTMs have a unique structure consisting of gates (input, forget, and output gates) that regulate the flow of information into and out of the memory cell. This gating mechanism helps the model decide which information to keep, discard, or pass on to the next time step.
+
+- **Handling Vanishing Gradient Problem**: Traditional RNNs often struggle with the vanishing gradient problem, where they lose track of long-range dependencies in a sequence. LSTMs overcome this by their ability to retain information over long sequences, making them more effective for complex tasks.
+
 ### Parameter Tuning
 
 The performance of these models highly depends on their configuration. Therefore, parameter tuning was a crucial part of the model development process:

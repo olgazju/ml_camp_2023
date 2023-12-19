@@ -118,6 +118,9 @@ In order to use this dataset for training a word-level LSTM model, significant d
 
 I run the model notebook using Google Colab. To replicate this, you'll need to upload the `model.ipynb` notebook to Google Colab and also upload the `cleaned.parquet` file to the 'Files' section in your Colab environment.
 
+<img width="507" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/45e7ac95-9673-429d-8c26-647a140d5477">
+
+
 ## Exploratory Data Analysis (EDA)
 
 The exploratory data analysis is detailed in [**capstione_project_1/notebooks/EDA.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/capstione_project_1/notebooks/EDA.ipynb), using the dataset located at `capstione_project_1/data/taylor_swift_lyrics.csv`. 

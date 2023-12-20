@@ -126,10 +126,11 @@ def generate_with_temperature(model, seed_text, temperature=1.0):
     return seed_text
 
 # Building the Model
+
 model = Sequential()
 model.add(Embedding(total_words, 100, input_length=max_sequence_len-1))
-#model1.add(LSTM(150, return_sequences=True))
 model.add(LSTM(150))
+model.add(Dropout(0.1))
 model.add(Dense(total_words, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 

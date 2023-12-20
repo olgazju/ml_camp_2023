@@ -120,10 +120,9 @@ I run the model notebook using Google Colab. To replicate this, you'll need to u
 
 <img width="507" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/45e7ac95-9673-429d-8c26-647a140d5477">
 
-
 ## Exploratory Data Analysis (EDA)
 
-The exploratory data analysis is detailed in [**capstione_project_1/notebooks/EDA.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/capstione_project_1/notebooks/EDA.ipynb), using the dataset located at `capstione_project_1/data/taylor_swift_lyrics.csv`. 
+The exploratory data analysis is detailed in [**capstione_project_1/notebooks/EDA.ipynb**](https://github.com/olgazju/ml_camp_2023/blob/main/capstione_project_1/notebooks/EDA.ipynb), using the dataset located at `capstione_project_1/data/taylor_swift_lyrics.csv`.
 
 In the end, the cleaned dataset was saved to **capstione_project_1/data/cleaned.parquet** for use in Modeling.
 
@@ -157,9 +156,8 @@ The performance of these models highly depends on their configuration. Therefore
 
 - **Number of Layers and Units**: Different configurations of the number of layers and the number of units per layer were tested to find the optimal balance between model complexity and performance.
 - **Embedding Layer**: For word-level models, I experimented with different sizes of embedding layers, including using pre-trained word embeddings like GloVe, to capture more nuanced word relationships.
-- **Dropout and Regularization**: To prevent overfitting, I used dropout layers and experimented with their rates. Additionally, L1 and L2 regularization techniques were evaluated.
-- **Learning Rate and Optimizer**: Different learning rates and optimizers (such as Adam and SGD) were trialed to identify the most effective combination for training the models.
-- **Sequence Length**: The impact of different input sequence lengths was also examined, as it affects how much context the model can consider while generating predictions.
+- **Dropout and Regularization**: To prevent overfitting, I used dropout layers and experimented with their rates.
+- **Learning Rate and Optimizer**: Different learning rates and optimizers were trialed to identify the most effective combination for training the models.
 
 ### Evaluation and Iteration
 
@@ -258,9 +256,7 @@ Wait a bit because it takes time for tensorflow to start.
 
 <img width="561" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/978d1a5d-892b-4d46-bb1e-8263612f7a30">
 
-
 <img width="1181" alt="image" src="https://github.com/olgazju/ml_camp_2023/assets/14594349/9dbbf446-a8d1-4991-82bd-a4ef7f0cc552">
-
 
 ### 5. **Stop the Docker Container**
 
